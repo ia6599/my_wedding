@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的婚礼</title>
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/snowflake.css">
+    <link rel="stylesheet" href="./css/jquery.fullPage.css">
 </head>
 
 <body>
@@ -13,11 +15,25 @@
     <div id='content'>
         <!-- 飘花 -->
         <div id="snowflake"></div>
+        <div id="fullpage">
+            <div class="section">Some section</div>
+            <div class="section">Some section</div>
+            <div class="section">Some section</div>
+            <div class="section">Some section</div>
+        </div>
     </div>
 
     <script type="text/javascript" src="./js/jquery.min.js"></script>
     <script type="text/javascript" src="./js/transit.js"></script>
-    <script src="./js/index.js"></script>
+    <script type="text/javascript" src="./js/snowflake.js"></script>
+    <script type="text/javascript" src="./js/jquery.fullPage.js"></script>
+    <script>
+        $(function() {
+            $(document).ready(function() {
+                $('#fullpage').fullpage();
+            });
+        })
+    </script>
 </body>
 
 </html>
