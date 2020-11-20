@@ -77,13 +77,20 @@ p {
     position: absolute;
 }
 
+.page1 {
+    overflow: hidden;
+}
+
 
 /* 第一屏样式 */
 
 .page1-bg {
     width: 100%;
     height: 100%;
-    transform: scale(1.8);
+    transform: scale(1);
+}
+
+.page1.active .page1-bg {
     animation: 2s page1-bg linear forwards;
 }
 
