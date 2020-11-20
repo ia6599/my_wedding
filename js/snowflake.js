@@ -1,13 +1,13 @@
 $(function() {
     var snowflakeURl = [
-        "../image/icon_petal_1.png",
-        "../image/icon_petal_2.png",
-        "../image/icon_petal_3.png",
-        "../image/icon_petal_4.png",
-        "../image/icon_petal_5.png",
-        "../image/icon_petal_6.png",
-        "../image/icon_petal_7.png",
-        "../image/icon_petal_8.png",
+        "./image/icon_petal_1.png",
+        "./image/icon_petal_2.png",
+        "./image/icon_petal_3.png",
+        "./image/icon_petal_4.png",
+        "./image/icon_petal_5.png",
+        "./image/icon_petal_6.png",
+        "./image/icon_petal_7.png",
+        "./image/icon_petal_8.png",
     ];
     var container = $("#content");
     visualWidth = container.width();
