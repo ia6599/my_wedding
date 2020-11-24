@@ -1,3 +1,8 @@
+@font-face {
+    font-family: AbrilFatface-Regular;
+    src: url(../static/font/AbrilFatface-Regular.ttf);
+}
+
 html,
 body {
     height: 100%;
@@ -105,5 +110,32 @@ div {
     }
     100% {
         transform: scale(1);
+    }
+}
+
+.page1-title {
+    position: absolute;
+    bottom: 80px;
+    width: 100%;
+    letter-spacing: 5px;
+    text-align: center;
+    font-family: AbrilFatface-Regular;
+    font-size: 40px;
+    transform: scale(0);
+}
+
+.page1.active .page1-title {
+    animation: 2s page1-title 1s linear forwards;
+}
+
+@keyframes page1-title {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(.5) rotateX(180deg);
+    }
+    100% {
+        transform: scale(1) rotateX(360deg);
     }
 }
