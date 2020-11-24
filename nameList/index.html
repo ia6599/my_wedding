@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>来访人员名单</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/nameList.css">
+    <script src="../js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="name-list">
+        <div class="name-list-search">
+            <span>姓名：</span>
+            <input type="text" class="search-name" placeholder="输入要搜索的姓名">
+        </div>
+        <table class="name-list-table">
+            <caption>来访人员名单（<span class="name-num"></span>人）</caption>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>电话</th>
+                    <th>来访日期</th>
+                    <th>车次/车牌号</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <!-- do somthing -->
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    $(function() {
+
+        var html = document.documentElement;
+
+        function onWindowResize() {
+            html.style.fontSize = html.getBoundingClientRect().width / 20 + 'px';
+        }
+
+        window.addEventListener('resize', onWindowResize);
+        onWindowResize();
+        $('.search-name').bind('input propertychange', function() {
+            // console.log($(this).val());
+            selectNameList($(this).val())
+        })
+
+        function selectNameList(name) {
+            $.ajax({
+                type: 'GET',
+                url: '../server/selectNameList.php',
+                data: {
+                    name: name
+                },
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success(res) {
+                    if (res.status == 200) {
+                        var data = res.data
+                        var html = ''
+                        for (var i = 0; i < data.length; i++) {
+                            var name = data[i].name
+                            var tell = data[i].tell
+                            var date = data[i].date ? data[i].date : '-'
+                            var car = data[i].car ? data[i].car : '-'
+                            html += '<tr><td>' + name + '</td><td><a href="tel:' + tell + '">' + tell +
+                                '</a></td><td>' + date +
+                                '</td><td>' + car + '</td></tr>'
+                        }
+                        $('.name-num').text(data.length)
+                        $('#tbody').html(html)
+                        console.log(data);
+                    }
+                }
+            })
+        }
+        selectNameList()
+    })
+</script>
+
+</html>

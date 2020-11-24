@@ -1,0 +1,49 @@
+.name-list {
+    width: 100%;
+    padding: 0 10px;
+    padding-top: 2rem;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.name-list .name-list-table {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.name-list .name-list-table caption {
+    font-weight: bold;
+}
+
+.name-list .name-list-table thead {
+    border-bottom: 2px solid #ddd;
+}
+
+.name-list .name-list-table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.name-list .name-list-table tbody tr:last-child {
+    border-bottom: 0;
+}
+
+.name-list .name-list-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.name-list .name-list-table th,
+.name-list .name-list-table td {
+    padding: 8px 0;
+}
+
+.name-list .name-list-search .search-name {
+    padding-left: 8px;
+    height: 24px;
+    line-height: 24px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}

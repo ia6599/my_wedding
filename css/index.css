@@ -42,11 +42,6 @@ a {
     text-decoration: none
 }
 
-a:hover {
-    color: #cd0200;
-    text-decoration: underline
-}
-
 em {
     font-style: normal
 }
@@ -79,6 +74,10 @@ p {
 
 .page1 {
     overflow: hidden;
+}
+
+div {
+    box-sizing: border-box;
 }
 
 
