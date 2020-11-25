@@ -1,8 +1,3 @@
-@font-face {
-    font-family: AbrilFatface-Regular;
-    src: url(../static/font/AbrilFatface-Regular.ttf);
-}
-
 html,
 body {
     height: 100%;
@@ -85,6 +80,40 @@ div {
     box-sizing: border-box;
 }
 
+.play-music {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+.play-music .music-icon {
+    width: 35px;
+    height: 35px;
+}
+
+.play-music .music-icon.play {
+    animation: 2s play-music linear infinite;
+}
+
+@keyframes play-music {
+    0% {
+        transform: rotateZ(0);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+.musicCon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
 
 /* 第一屏样式 */
 
@@ -113,14 +142,35 @@ div {
     }
 }
 
+.page1-name {
+    position: absolute;
+    bottom: 180px;
+    left: -100%;
+    font-size: 30px;
+    font-family: SC-ExtraLight;
+}
+
+.page1.active .page1-name {
+    animation: 2s page1-name 1s linear forwards;
+}
+
+@keyframes page1-name {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 48px;
+    }
+}
+
 .page1-title {
     position: absolute;
-    bottom: 80px;
+    bottom: 120px;
     width: 100%;
     letter-spacing: 5px;
     text-align: center;
     font-family: AbrilFatface-Regular;
-    font-size: 40px;
+    font-size: 50px;
     transform: scale(0);
 }
 
@@ -137,5 +187,51 @@ div {
     }
     100% {
         transform: scale(1) rotateX(360deg);
+    }
+}
+
+.page1-bridegroom,
+.page1-bride {
+    position: absolute;
+    bottom: 60px;
+    left: 48px;
+    width: 200px;
+    font-family: SC-ExtraLight;
+    font-size: 20px;
+    text-align: justify;
+    opacity: 0;
+}
+
+.page1-bride {
+    bottom: 60px;
+}
+
+.page1.active .page1-bridegroom {
+    animation: .5s page1-bridegroom 2s linear forwards;
+}
+
+@keyframes page1-bridegroom {
+    0% {
+        bottom: 60px;
+        opacity: .5;
+    }
+    100% {
+        bottom: 90px;
+        opacity: 1;
+    }
+}
+
+.page1.active .page1-bride {
+    animation: .5s page1-bride 2s linear forwards;
+}
+
+@keyframes page1-bride {
+    0% {
+        bottom: 90px;
+        opacity: .5;
+    }
+    100% {
+        bottom: 60px;
+        opacity: 1;
     }
 }
