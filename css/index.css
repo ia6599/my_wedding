@@ -300,6 +300,10 @@ div {
     height: 26.13rem;
     background-color: rgba(255, 255, 255, .7);
     transform: scale(0);
+    padding: 0.53rem;
+    text-align: center;
+    font-family: SC-ExtraLight;
+    font-size: 0.85rem;
 }
 
 .page20-content::after,
@@ -344,10 +348,6 @@ div {
 }
 
 .page20.active .page20-content {
-    padding: 0.53rem;
-    text-align: center;
-    font-family: SC-ExtraLight;
-    font-size: 0.85rem;
     animation: 1s page20-content .5s linear forwards;
 }
 

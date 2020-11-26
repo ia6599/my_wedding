@@ -23,10 +23,10 @@ $(function() {
         }
     });
     // 初始化静态地图
-    var addressParentW = $(".page20-content").width();
-    console.log(addressParentW);
+    var addressParentP = $(".page20-content").css('padding')
+    var addressParentW = $(".page20-content").width() - parseInt(addressParentP) * 2;
+    console.log($(".page20-content").css('padding'));
     var size = parseInt(addressParentW) + "*" + parseInt(addressParentW / 1.88);
-    console.log(size);
     $(".page20-address-img").attr(
         "src",
         "https://restapi.amap.com/v3/staticmap?key=2e950b35bf2e5541092e720483c65eab&location=115.568191%2C39.116678&zoom=13&size=" +
