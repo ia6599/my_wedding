@@ -29,8 +29,6 @@ select {
 }
 
 body {
-    font-size: 12px;
-    font-family: '微软雅黑';
     background: #fff;
     height: 100%;
     width: 100%;
@@ -67,7 +65,7 @@ p {
 #content {
     width: 100%;
     height: 100%;
-    top: 0px;
+    top: 0;
     overflow: hidden;
     position: absolute;
 }
@@ -82,14 +80,14 @@ div {
 
 .play-music {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 1.06rem;
+    right: 1.06rem;
     z-index: 999;
 }
 
 .play-music .music-icon {
-    width: 35px;
-    height: 35px;
+    width: 1.86rem;
+    height: 1.86rem;
 }
 
 .play-music .music-icon.play {
@@ -114,16 +112,44 @@ div {
     opacity: 0;
 }
 
+.arrows-top {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.06rem;
+    width: 2.13rem;
+    height: 1.6rem;
+    z-index: 99;
+    animation: 1.5s arrows-top linear infinite;
+}
+
+@keyframes arrows-top {
+    0% {
+        bottom: 0;
+        opacity: 0;
+    }
+    50% {
+        bottom: 1.06rem;
+        opacity: 1;
+    }
+    100% {
+        bottom: 2.13rem;
+        opacity: 0;
+    }
+}
+
 
 /* 第一屏样式 */
 
-.page1-bg {
+.page1-bg,
+.page20-bg {
     width: 100%;
     height: 100%;
     transform: scale(1);
 }
 
-.page1.active .page1-bg {
+.page1.active .page1-bg,
+.page20.active .page20-bg {
     animation: 2s page1-bg linear forwards;
 }
 
@@ -144,9 +170,9 @@ div {
 
 .page1-name {
     position: absolute;
-    bottom: 180px;
+    bottom: 9.6rem;
     left: -100%;
-    font-size: 30px;
+    font-size: 1.6rem;
     font-family: SC-ExtraLight;
 }
 
@@ -159,18 +185,18 @@ div {
         left: -100%;
     }
     100% {
-        left: 48px;
+        left: 2.56rem;
     }
 }
 
 .page1-title {
     position: absolute;
-    bottom: 120px;
+    bottom: 6.4rem;
     width: 100%;
-    letter-spacing: 5px;
+    letter-spacing: 0.26rem;
     text-align: center;
     font-family: AbrilFatface-Regular;
-    font-size: 50px;
+    font-size: 2.66rem;
     transform: scale(0);
 }
 
@@ -193,17 +219,17 @@ div {
 .page1-bridegroom,
 .page1-bride {
     position: absolute;
-    bottom: 60px;
-    left: 48px;
-    width: 200px;
+    bottom: 3.2rem;
+    left: 2.56rem;
+    width: 10.66rem;
     font-family: SC-ExtraLight;
-    font-size: 20px;
+    font-size: 1.06rem;
     text-align: justify;
     opacity: 0;
 }
 
 .page1-bride {
-    bottom: 60px;
+    bottom: 3.2rem;
 }
 
 .page1.active .page1-bridegroom {
@@ -212,11 +238,11 @@ div {
 
 @keyframes page1-bridegroom {
     0% {
-        bottom: 60px;
+        bottom: 3.2rem;
         opacity: .5;
     }
     100% {
-        bottom: 90px;
+        bottom: 4.8rem;
         opacity: 1;
     }
 }
@@ -227,11 +253,218 @@ div {
 
 @keyframes page1-bride {
     0% {
-        bottom: 90px;
+        bottom: 4.8rem;
         opacity: .5;
     }
     100% {
-        bottom: 60px;
+        bottom: 3.2rem;
+        opacity: 1;
+    }
+}
+
+.page1-tips {
+    position: absolute;
+    bottom: -1.06rem;
+    width: 100%;
+    text-align: center;
+    font-family: AbrilFatface-Regular;
+    font-weight: bold;
+    font-size: 0.64rem;
+    letter-spacing: 0.21rem;
+}
+
+.page1.active .page1-tips {
+    animation: 1s page1-tips 2s linear forwards;
+}
+
+@keyframes page1-tips {
+    0% {
+        bottom: -1.06rem;
+    }
+    100% {
+        bottom: 0.85rem;
+    }
+}
+
+
+/* 第二屏 */
+
+.page20-content {
+    position: absolute;
+    z-index: 99;
+    top: 50%;
+    left: 50%;
+    margin-left: -7.73rem;
+    margin-top: -13.06rem;
+    width: 15.46rem;
+    height: 26.13rem;
+    background-color: rgba(255, 255, 255, .7);
+    transform: scale(0);
+}
+
+.page20-content::after,
+.page20-content::before {
+    content: '';
+    width: 16.53rem;
+    height: 27.2rem;
+    box-sizing: border-box;
+    border: 0.05rem solid;
+    position: absolute;
+    top: -0.58rem;
+    left: -0.58rem;
+    z-index: -1;
+    animation: boxBorder 8s linear infinite;
+}
+
+.page20-content:before {
+    animation-delay: -4s;
+}
+
+@keyframes boxBorder {
+    0% {
+        border-color: #fff;
+        clip: rect(0, 16.53rem, 0.10rem, 0);
+    }
+    25% {
+        border-color: yellow;
+        clip: rect(0, 0.10rem, 27.2rem, 0)
+    }
+    50% {
+        border-color: blue;
+        clip: rect(27.62rem, 16.53rem, 27.2rem, 0)
+    }
+    75% {
+        border-color: red;
+        clip: rect(0, 16.53rem, 27.2rem, 11.62rem)
+    }
+    100% {
+        border-color: #fff;
+        clip: rect(0, 16.53rem, 0.10rem, 0)
+    }
+}
+
+.page20.active .page20-content {
+    padding: 0.53rem;
+    text-align: center;
+    font-family: SC-ExtraLight;
+    font-size: 0.85rem;
+    animation: 1s page20-content .5s linear forwards;
+}
+
+@keyframes page20-content {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.page20-title-icon {
+    position: relative;
+    bottom: -32rem;
+    opacity: 0;
+    width: 14.4rem;
+    height: 1.6rem;
+}
+
+.page20.active .page20-title-icon {
+    animation: 2s page20-title-icon 1.5s linear forwards;
+}
+
+@keyframes page20-title-icon {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+.page20-title-txt {
+    position: relative;
+    bottom: -32rem;
+    opacity: 0;
+    margin: 0.53rem 0;
+    font-size: 0.8rem;
+}
+
+.page20.active .page20-title-txt {
+    animation: 2s page20-title-icon 1.8s linear forwards;
+}
+
+.page20-time-title {
+    position: relative;
+    bottom: -32rem;
+    opacity: 0;
+    margin-top: 1.6rem;
+}
+
+.page20.active .page20-time-title {
+    animation: 2s page20-title-icon 2s linear forwards;
+}
+
+.page20-time {
+    position: relative;
+    bottom: -32rem;
+    opacity: 0;
+    margin-top: 0.53rem;
+}
+
+.page20.active .page20-time {
+    animation: 2s page20-title-icon 2.2s linear forwards;
+}
+
+.page20.active .page20-time.lunar {
+    animation: 2s page20-title-icon 2.4s linear forwards;
+}
+
+.page20-address-title,
+.page20-address {
+    position: relative;
+    bottom: -32rem;
+    opacity: 0;
+    margin-top: 0.53rem;
+}
+
+.page20.active .page20-address-title {
+    animation: 2s page20-title-icon 2.6s linear forwards;
+}
+
+.page20.active .page20-address {
+    animation: 2s page20-title-icon 2.8s linear forwards;
+}
+
+.page20-address-img {
+    position: relative;
+    bottom: -32rem;
+    opacity: 0;
+    margin-top: 1.06rem;
+}
+
+.page20.active .page20-address-img {
+    animation: 2s page20-title-icon 3s linear forwards;
+}
+
+.page20-tips {
+    position: absolute;
+    width: 14.4rem;
+    bottom: -32rem;
+    font-size: 0.64rem;
+    opacity: 0;
+}
+
+.page20.active .page20-tips {
+    animation: 2s page20-tips 3.2s linear forwards;
+}
+
+@keyframes page20-tips {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        bottom: 0.53rem;
         opacity: 1;
     }
 }
