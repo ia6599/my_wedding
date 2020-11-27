@@ -221,7 +221,7 @@ div {
     position: absolute;
     bottom: 3.2rem;
     left: 2.56rem;
-    width: 10.66rem;
+    width: 7rem;
     font-family: SC-ExtraLight;
     font-size: 1.06rem;
     text-align: justify;
@@ -288,6 +288,248 @@ div {
 
 
 /* 第二屏 */
+
+.page2-bg,
+.page3-bg {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+}
+
+.page2.active .page2-bg {
+    animation: 2s page2-bg linear forwards;
+}
+
+@keyframes page2-bg {
+    0% {
+        top: -100%;
+        transform: scale(0);
+    }
+    70% {
+        top: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        top: 0;
+        transform: scale(1);
+    }
+}
+
+.page2-content,
+.page3-content {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.page2.active .page2-content {
+    animation: .5s page2-content 2s linear forwards;
+}
+
+@keyframes page2-content {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 200px;
+    }
+}
+
+.page2-content::after,
+.page3-content::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 10px;
+    background-color: #000;
+}
+
+.page2.active .page2-content::after {
+    animation: 1s page2-content-after 2.5s linear forwards;
+}
+
+@keyframes page2-content-after {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.page2-portrait {
+    position: absolute;
+    top: -76px;
+    right: 20px;
+    width: 148px;
+    height: 148px;
+    border-radius: 50%;
+    transform: scale(0);
+    z-index: 99;
+}
+
+.page2.active .page2-portrait {
+    animation: 1s page2-portrait 2.5s linear forwards;
+}
+
+@keyframes page2-portrait {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1) rotateZ(360deg);
+    }
+}
+
+.page2-corsage {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 36px;
+    height: 35px;
+    transform: scale(0);
+    z-index: 99;
+}
+
+.page2.active .page2-corsage {
+    animation: .5s page2-corsage 2.5s linear forwards;
+}
+
+@keyframes page2-corsage {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.page2-title {
+    position: absolute;
+    z-index: 99;
+    top: 17px;
+    left: 180px;
+    font-family: soul-handwriting;
+    font-size: 20px;
+    color: #fff;
+    opacity: 0;
+}
+
+.page2.active .page2-title {
+    animation: .5s page2-title 2.5s linear forwards;
+}
+
+@keyframes page2-title {
+    0% {
+        left: 180px;
+        opacity: 0;
+    }
+    100% {
+        left: 82px;
+        opacity: 1;
+    }
+}
+
+.page2-name {
+    position: absolute;
+    z-index: 99;
+    left: -100px;
+    top: 68px;
+    font-size: 16px;
+    font-family: SC-ExtraLight;
+    color: #fff;
+}
+
+.page2.active .page2-name {
+    animation: .5s page2-name 2.5s linear forwards;
+}
+
+@keyframes page2-name {
+    0% {
+        left: -100px;
+    }
+    100% {
+        left: 20px;
+    }
+}
+
+.page2-sentence1 {
+    position: absolute;
+    z-index: 99;
+    left: 20px;
+    top: 300px;
+    font-size: 16px;
+    font-family: SC-ExtraLight;
+    color: #fff;
+}
+
+.page2.active .page2-sentence1 {
+    animation: 1s page2-sentence1 2.5s linear forwards;
+}
+
+@keyframes page2-sentence1 {
+    0% {
+        top: 300px;
+    }
+    100% {
+        top: 100px;
+    }
+}
+
+.page2-sentence2 {
+    position: absolute;
+    z-index: 99;
+    left: 40px;
+    top: 300px;
+    font-size: 16px;
+    font-family: SC-ExtraLight;
+    color: #fff;
+}
+
+.page2.active .page2-sentence2 {
+    animation: 1s page2-sentence2 2.7s linear forwards;
+}
+
+@keyframes page2-sentence2 {
+    0% {
+        top: 300px;
+    }
+    100% {
+        top: 130px;
+    }
+}
+
+
+/* 第三屏 */
+
+.page3-bg {
+    top: 0;
+    transform: scale(1);
+}
+
+.page3-content {
+    top: 0;
+    bottom: auto;
+    height: 200px;
+}
+
+.page3-content::after {
+    top: auto;
+    bottom: -15px;
+    width: 100%;
+}
+
+
+/* 第二十屏 */
 
 .page20-content {
     position: absolute;

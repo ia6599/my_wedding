@@ -7,3 +7,8 @@
     font-family: SC-ExtraLight;
     src: url(../static/font/SC-ExtraLight.otf);
 }
+
+@font-face {
+    font-family: soul-handwriting;
+    src: url(../static/font/soul-handwriting_free-version.ttf);
+}
