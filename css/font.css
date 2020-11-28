@@ -12,3 +12,8 @@
     font-family: soul-handwriting;
     src: url(../static/font/soul-handwriting_free-version.ttf);
 }
+
+@font-face {
+    font-family: nanyongmingti;
+    src: url(../static/font/nanyongmingti.ttf);
+}
