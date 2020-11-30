@@ -73,36 +73,86 @@ $(function() {
         $(".music-icon").click();
     });
     // 初始化静态地图
-    var addressParentP = $(".page20-content").css("padding");
+    var addressParentP = $(".page4-content").css("padding");
     var addressParentW =
-        $(".page20-content").width() - parseInt(addressParentP) * 2;
-    console.log($(".page20-content").css("padding"));
+        $(".page4-content").width() - parseInt(addressParentP) * 2;
+    console.log($(".page4-content").css("padding"));
     var size = parseInt(addressParentW) + "*" + parseInt(addressParentW / 1.88);
-    $(".page20-address-img").attr(
+    $(".page4-address-img").attr(
         "src",
         "https://restapi.amap.com/v3/staticmap?key=2e950b35bf2e5541092e720483c65eab&location=115.568191%2C39.116678&zoom=13&size=" +
         size +
         "&markers=mid%2C%2CA%3A115.568191%2C39.116678"
     );
-    $(".page20-address-img").css("width", addressParentW);
+    $(".page4-address-img").css("width", addressParentW);
     // 点击静态地图跳转详情地图
-    $(".page20-address-img").click(function() {
+    $(".page4-address-img").click(function() {
         location.href =
             "https://uri.amap.com/marker?position=115.568191,39.116678&name=婚礼现场&src=mypage&coordinate=gaode&callnative=1";
     });
     // 点击提交事件
-    $('.page5-submit').click(function() {
-        var name = $('#name').val()
-        var tell = $('#tell').val()
-        var date = $('#date').val()
-        var carNum = $('#carNum').val()
-        var arrive = $('#arrive').val()
-        var greeting = $('#greeting').val()
-        console.log(name,
-            tell,
-            date,
-            carNum,
-            arrive,
-            greeting);
-    })
+    $(".page5-submit").click(function() {
+        var name = $("#name").val();
+        var tell = $("#tell").val();
+        var date = $("#date").val();
+        var carNum = $("#carNum").val();
+        var arrive = $("#arrive").val();
+        var greeting = $("#greeting").val();
+        var telStr = /^[1](([3][0-9])|([4][5-9])|([5][0-3,5-9])|([6][5,6])|([7][0-8])|([8][0-9])|([9][1,8,9]))[0-9]{8}$/;
+        if (name == "") {
+            showCustomAlert("姓名不能为空");
+            return;
+        }
+        if (tell == "") {
+            showCustomAlert("电话不能为空");
+            return;
+        }
+        if (!telStr.test(tell)) {
+            showCustomAlert("请填写正确的手机号");
+            return;
+        }
+        $.ajax({
+            type: "POST",
+            url: "/my_wedding/server/addNameList.php",
+            data: {
+                name,
+                tell,
+                date,
+                carNum,
+                arrive,
+                greeting,
+            },
+            success(res) {
+                res = JSON.parse(res)
+                if (res.status == 200) {
+                    showCustomAlert("提交成功！");
+                    $("#name").val('');
+                    $("#tell").val('');
+                    $("#date").val('');
+                    $("#carNum").val('');
+                    $("#arrive").val('');
+                    $("#greeting").val('');
+                }
+            },
+        });
+    });
+    new Mdate("date", {
+            acceptId: "dateSelectorTwo",
+            beginYear: "2002",
+            beginMonth: "10",
+            beginDay: "24",
+            endYear: "2017",
+            endMonth: "1",
+            endDay: "1",
+            format: "-"
+        })
+        // 显示提示框
+    function showCustomAlert(tips) {
+        $(".custom-alert").show();
+        $(".alert-content").text(tips);
+    }
+    // 隐藏提示框
+    $(".alert-btn").click(function() {
+        $(".custom-alert").hide();
+    });
 });

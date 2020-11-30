@@ -1427,3 +1427,47 @@ div {
     text-align: center;
     line-height: 40px;
 }
+
+.custom-alert {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 99999;
+}
+
+.alert-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    margin-left: -130px;
+    width: 260px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.alert-title {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.alert-content {
+    margin-top: 14px;
+    font-size: 14px;
+}
+
+.alert-btn {
+    margin-top: 20px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 17px;
+    color: #007aff;
+    font-weight: bold;
+    border-top: 1px solid #ddd;
+}

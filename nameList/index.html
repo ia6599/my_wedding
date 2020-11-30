@@ -25,6 +25,7 @@
                     <th>电话</th>
                     <th>来访日期</th>
                     <th>车次/车牌号</th>
+                    <th>抵达站</th>
                 </tr>
             </thead>
             <tbody id="tbody">
@@ -44,15 +45,15 @@
 
         window.addEventListener('resize', onWindowResize);
         onWindowResize();
+        // 按人名搜索
         $('.search-name').bind('input propertychange', function() {
-            // console.log($(this).val());
-            selectNameList($(this).val())
-        })
-
+                selectNameList($(this).val())
+            })
+            // 查询人员列表
         function selectNameList(name) {
             $.ajax({
                 type: 'GET',
-                url: '../server/selectNameList.php',
+                url: '/my_wedding/server/selectNameList.php',
                 data: {
                     name: name
                 },
@@ -67,9 +68,10 @@
                             var tell = data[i].tell
                             var date = data[i].date ? data[i].date : '-'
                             var car = data[i].car ? data[i].car : '-'
+                            var arrive = data[i].arrive ? data[i].arrive : '-'
                             html += '<tr><td>' + name + '</td><td><a href="tel:' + tell + '">' + tell +
                                 '</a></td><td>' + date +
-                                '</td><td>' + car + '</td></tr>'
+                                '</td><td>' + car + '</td><td>' + arrive + '</td></tr>'
                         }
                         $('.name-num').text(data.length)
                         $('#tbody').html(html)

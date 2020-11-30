@@ -11,8 +11,11 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/snowflake.css">
     <link rel="stylesheet" href="./css/jquery.fullPage.css">
+    <link rel="stylesheet" href="./css/Mdate.css">
     <script type="text/javascript" src="./js/jquery.min.js"></script>
     <script type="text/javascript" src="./js/jquery.fullPage.js"></script>
+    <script type="text/javascript" src="./js/iScroll.js"></script>
+    <script type="text/javascript" src="./js/Mdate.js"></script>
     <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/mobile-detect/1.4.4/mobile-detect.min.js"></script>
 </head>
@@ -100,19 +103,25 @@
                     <div class="page4-tips">＞诚挚邀请您参加我们的婚礼＜</div>
                 </div>
             </div>
-            <div class="section page5 active">
+            <div class="section page5">
                 <img class="page5-bg" src="./image/page1_bg.jpg" alt="">
                 <div class="page5-content">
                     <div class="page5-title">welcome</div>
                     <input class="page5-input" id="name" type="text" placeholder="姓名">
                     <input class="page5-input" id="tell" type="text" placeholder="电话">
-                    <input class="page5-input" id="date" type="text" placeholder="来访日期">
-                    <!-- <input class="page5-input" id="" type="text" placeholder="车牌号"> -->
+                    <input class="page5-input" id="date" type="text" placeholder="来访日期" readonly="readonly">
                     <input class="page5-input" id="carNum" type="text" placeholder="车次/车牌号">
                     <input class="page5-input" id="arrive" type="text" placeholder="抵达站">
                     <textarea class="page5-input page5-textarea" id="greeting" placeholder="祝福语"></textarea>
                     <div class="page5-submit">提交</div>
                 </div>
+            </div>
+        </div>
+        <div class="custom-alert">
+            <div class="alert-box">
+                <div class="alert-title">提示消息</div>
+                <div class="alert-content">提示内容</div>
+                <div class="alert-btn">确定</div>
             </div>
         </div>
     </div>
