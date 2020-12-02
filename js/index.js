@@ -46,72 +46,82 @@ $(function() {
 
     function getGreetingList() {
         $.ajax({
-            type: 'GET',
-            url: '/my_wedding/server/selectGreetingList.php',
+            type: "GET",
+            url: "/my_wedding/server/selectGreetingList.php",
             data: {
-                name: name
+                name: name,
             },
-            dataType: 'json',
-            contentType: 'application/json; charset=utf-8',
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
             success(res) {
                 if (res.status == 200) {
-                    var data = res.data
-                    var greetingList = []
+                    var data = res.data;
+                    var greetingList = [];
                     for (var i = 0; i < data.length; i++) {
-                        greetingList.push(data[i].name + '：' + data[i].greeting)
+                        greetingList.push(data[i].name + "：" + data[i].greeting);
                     }
-                    barrage(greetingList)
+                    setTimeout(function() {
+                        barrage(greetingList);
+                    }, 15000);
                 }
-            }
-        })
+            },
+        });
     }
 
     function barrage(barrageData) {
         var pageH = parseInt($("#content").height());
         var pageW = parseInt($("#content").width());
-        var colorArr = ["#cfaf12", "#12af01", "#981234", "#adefsa", "#db6be4", "#f5264c", "#d34a74"];
+        var colorArr = [
+            "#cfaf12",
+            "#12af01",
+            "#981234",
+            "#adefsa",
+            "#db6be4",
+            "#f5264c",
+            "#d34a74",
+        ];
         for (var i = 0; i < barrageData.length; i++) {
-            auto(barrageData[i], i)
+            auto(barrageData[i], i);
         }
 
         function auto(str, id) {
-            $("#content").append("<p class='barrage barrage" + id + "'>" + str + "</p>");
-            var _top = parseInt(pageH * (Math.random()));
+            $("#content").append(
+                "<p class='barrage barrage" + id + "'>" + str + "</p>"
+            );
+            var _top = parseInt(pageH * Math.random());
             var _left = parseInt(Math.random() * 50);
-            var num = parseInt(colorArr.length * (Math.random()));
-            var timer
+            var num = parseInt(colorArr.length * Math.random());
+            var timer;
             $(".barrage" + id).css({
-                "top": _top,
-                "left": pageW + 100 + _left,
-                "color": colorArr[num],
-                "font-size": "20px"
+                top: _top,
+                left: pageW + 100 + _left,
+                color: colorArr[num],
+                "font-size": "20px",
             });
-            timer = $(".barrage" + id).width() / 140 * 10000
+            timer = ($(".barrage" + id).width() / 140) * 10000;
             $(".barrage" + id).animate({
-                "left": -($(".barrage" + id).width() + 500) + "px"
-            }, timer, function() {
-                $(this).remove();
-            });
-        };
+                    left: -($(".barrage" + id).width() + 500) + "px",
+                },
+                timer,
+                function() {
+                    $(this).remove();
+                }
+            );
+        }
     }
-    //初始化花雨
-    // snowflake();
-    // 初始化fullpage
-    // $(document).ready(function() {
-    //     $("#fullpage").fullpage();
-    // });
     // 音乐播放按钮事件
     $(".music-icon").click(function() {
         if ($(this).hasClass("play")) {
-            $(".musicCon")[0].play();
+            $(".musicCon")[0].pause();
             $(this).removeClass("play");
         } else {
-            $(".musicCon")[0].pause();
+            $(".musicCon")[0].play();
             $(this).addClass("play");
         }
     });
     // 点击接听电话
     $(".cid-accept").click(function() {
+        // 隐藏来电页
         $(".cid").css("display", "none");
         //初始化花雨
         snowflake();
@@ -120,7 +130,7 @@ $(function() {
             $("#fullpage").fullpage();
         });
         $(".music-icon").click();
-        getGreetingList()
+        getGreetingList();
     });
     // 初始化静态地图
     var addressParentP = $(".page4-content").css("padding");
@@ -173,33 +183,33 @@ $(function() {
                 greeting,
             },
             success(res) {
-                res = JSON.parse(res)
+                res = JSON.parse(res);
                 if (res.status == 200) {
                     if (greeting) {
-                        barrage([name + '：' + greeting])
+                        barrage([name + "：" + greeting]);
                     }
                     showCustomAlert("提交成功！");
-                    $("#name").val('');
-                    $("#tell").val('');
-                    $("#date").val('');
-                    $("#carNum").val('');
-                    $("#arrive").val('');
-                    $("#greeting").val('');
+                    $("#name").val("");
+                    $("#tell").val("");
+                    $("#date").val("");
+                    $("#carNum").val("");
+                    $("#arrive").val("");
+                    $("#greeting").val("");
                 }
             },
         });
     });
     new Mdate("date", {
-            acceptId: "dateSelectorTwo",
-            beginYear: "2002",
-            beginMonth: "10",
-            beginDay: "24",
-            endYear: "2017",
-            endMonth: "1",
-            endDay: "1",
-            format: "-"
-        })
-        // 显示提示框
+        acceptId: "dateSelectorTwo",
+        beginYear: "2002",
+        beginMonth: "10",
+        beginDay: "24",
+        endYear: "2017",
+        endMonth: "1",
+        endDay: "1",
+        format: "-",
+    });
+    // 显示提示框
     function showCustomAlert(tips) {
         $(".custom-alert").show();
         $(".alert-content").text(tips);

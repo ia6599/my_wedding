@@ -846,7 +846,8 @@ div {
     background-color: rgba(0, 0, 0, .5);
 }
 
-.page2.active .page2-content {
+.page2.active .page2-content,
+.page3.active .page3-content {
     animation: .5s page2-content 2s linear forwards;
 }
 
@@ -871,7 +872,8 @@ div {
     background-color: #000;
 }
 
-.page2.active .page2-content::after {
+.page2.active .page2-content::after,
+.page3.active .page3-content::after {
     animation: 1s page2-content-after 2.5s linear forwards;
 }
 
@@ -896,7 +898,8 @@ div {
     z-index: 99;
 }
 
-.page2.active .page2-portrait {
+.page2.active .page2-portrait, 
+.page3.active .page3-portrait{
     animation: 1s page2-portrait 2.5s linear forwards;
 }
 
@@ -1071,7 +1074,7 @@ div {
     }
 }
 
-.page3-content {
+/* .page3-content {
     top: 0;
     bottom: auto;
     height: 0;
@@ -1129,7 +1132,7 @@ div {
 
 .page3-title {
     top: 1.2rem;
-}
+} */
 
 
 /* 第四屏 */
