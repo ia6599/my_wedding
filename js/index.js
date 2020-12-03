@@ -9,7 +9,6 @@ $(function() {
     // 计算HTML的fontsize大小
     onWindowResize();
     initCallList();
-
     function initCallList() {
         var call_list = [
             "同学",
