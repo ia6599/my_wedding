@@ -9,6 +9,31 @@ $(function() {
     // 计算HTML的fontsize大小
     onWindowResize();
     initCallList();
+    if (!isMobile()) {
+        $('.alert-content').html('<p>移动端浏览效果更佳</p><img style="width:150px;height:150px;margin-top:20px" src="/my_wedding/image/qrCode_wedding.png" alt="">')
+        $(".custom-alert").show();
+    }
+
+    function isMobile() {
+        var userAgentInfo = navigator.userAgent;
+        var mobileAgents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+        var mobile_flag = false;
+        //根据userAgent判断是否是手机
+        for (var v = 0; v < mobileAgents.length; v++) {
+            if (userAgentInfo.indexOf(mobileAgents[v]) > 0) {
+                mobile_flag = true;
+                break;
+            }
+        }
+        var screen_width = window.screen.width;
+        var screen_height = window.screen.height;
+        //根据屏幕分辨率判断是否是手机
+        if (screen_width < 500 && screen_height < 800) {
+            mobile_flag = true;
+        }
+        return mobile_flag;
+    }
+
     function initCallList() {
         var call_list = [
             "同学",
@@ -31,12 +56,12 @@ $(function() {
                 '<div class="page1-call page1-call' +
                 (i + 1) +
                 '" style="font-size:' +
-                fontSize +
-                "px;top:" +
-                top[i] +
-                "px;left:" +
-                left[i] +
-                'px">' +
+                (fontSize / 18.75) +
+                "rem;top:" +
+                (top[i] / 18.75) +
+                "rem;left:" +
+                (left[i] / 18.75) +
+                'rem">' +
                 call_list[i] +
                 "</div>";
         }
