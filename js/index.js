@@ -223,14 +223,15 @@ $(function() {
             },
         });
     });
+    var date = new Date()
     new Mdate("date", {
         acceptId: "dateSelectorTwo",
-        beginYear: "2002",
-        beginMonth: "10",
-        beginDay: "24",
-        endYear: "2017",
-        endMonth: "1",
-        endDay: "1",
+        beginYear: date.getFullYear(),
+        beginMonth: date.getMonth() + 1,
+        beginDay: date.getDate(),
+        endYear: "2020",
+        endMonth: "12",
+        endDay: "30",
         format: "-",
     });
     // 显示提示框
